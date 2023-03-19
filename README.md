@@ -5,6 +5,29 @@ Examples using the [uws-reverse-proxy](https://github.com/jordan-breton/uws-reve
 **Note:** The `PORT=7777` is a random port that should not conflit with any of your applications. That said,
 it's optional. You can just avoid it and the server will start to listen on port `80` by default.
 
+## Install
+
+Start by cloning this repository: 
+
+```bash
+git clone git@github.com:jordan-breton/uws-reverse-proxy-examples.git
+```
+
+Then you must use `yarn install`:
+
+```bash
+cd uws-reverse-proxy-examples
+yarn install
+
+cd examples/nestjs
+yarn install
+```
+
+**Note:** NestJS is installed in its own folder with its own node module, it's why you need to run `yarn install` two 
+times.
+
+See all available commands belows.
+
 ## Available options
 
 The following `env` options are available for you to change some configuration quickly before
