@@ -1,7 +1,7 @@
 {
   "name": "uws-reverse-proxy-examples",
   "version": "1.0.0",
-  "description": "Contains many examples of usage of the uws-reverse-proxy package (includes usage with some known frameworks too)",
+  "description": "Contains some examples of usage of the uws-reverse-proxy package (includes usage with some known frameworks like express, nestjs, koa, fastify)",
   "main": "index.js",
   "repository": "git@github.com:jordan-breton/uws-reverse-proxy-examples.git",
   "author": "Jordan Breton <contact@jordan-breton.com>",
@@ -14,7 +14,7 @@
     "fastify": "node examples/fastify/server.js",
     "nestjs": "cd examples/nestjs && nest start",
     "standalone:http": "node examples/standalone/http.js",
-    "standalone:uws": "node examples/standalone/uWebSockets.js"
+    "standalone:reverse-proxy": "node examples/standalone/uws-reverse-proxy.js"
   },
   "dependencies": {
     "@fastify/static": "^6.9.0",

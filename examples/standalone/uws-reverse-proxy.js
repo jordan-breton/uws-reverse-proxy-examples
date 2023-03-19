@@ -15,12 +15,12 @@ const { server: { forwardTo, port } } = config;
 // endregion
 // region Proxy setup
 
-const proxy = new UWSProxy(
+const uwsReverseProxy = new UWSProxy(
 	createUWSConfig(uWebSockets, { port }),
 	createHTTPConfig(forwardTo)
 );
-proxy.start();
+uwsReverseProxy.start();
 
-startUWS(proxy.uws.server, port);
+startUWS(uwsReverseProxy.uws.server, port);
 
 // endregion
