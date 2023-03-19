@@ -35,7 +35,7 @@ listening port.
 
 ### HTTP
 
-**Code directory**: `examples/standalone`
+**Code directory**: [`examples/standalone`](/examples/standalone)
 
 **Run**:
 
@@ -44,7 +44,7 @@ listening port.
 
 ### Proxy
 
-**Code directory**: `examples/standalone`
+**Code directory**: [`examples/standalone`](examples/standalone)
 
 **Run**:
 
@@ -61,7 +61,7 @@ see [the standalone demo](/#standalone).
 
 ## Native `node:http`
 
-**Code directory**: `examples/native`
+**Code directory**: [`examples/native`](/examples/native)
 
 **Run**: 
 
@@ -72,7 +72,7 @@ see [the standalone demo](/#standalone).
 
 ## Express
 
-**Code directory**: `examples/express`
+**Code directory**: [`examples/express`](/examples/express)
 
 **Run**:
 
@@ -83,7 +83,7 @@ see [the standalone demo](/#standalone).
 
 ## Koa
 
-**Code directory**: `examples/koa`
+**Code directory**: [`examples/koa`](/examples/koa)
 
 **Run**:
 
@@ -94,7 +94,7 @@ see [the standalone demo](/#standalone).
 
 ## Fastify
 
-**Code directory**: `examples/fastify`
+**Code directory**: [`examples/fastify`](/examples/fastify)
 
 **Run**:
 
@@ -105,7 +105,7 @@ see [the standalone demo](/#standalone).
 
 ## Nestjs
 
-**Code directory**: `examples/nestjs`
+**Code directory**: [`examples/nestjs`](/examples/nestjs)
 
 **Run**:
 
