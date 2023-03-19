@@ -1,6 +1,6 @@
 # uws-reverse-proxy-examples
 
-Contains some examples of usage of the uws-reverse-proxy package (includes usage with some known frameworks too)
+Contains some examples of usage of the [uws-reverse-proxy](https://github.com/jordan-breton/uws-reverse-proxy) package (includes usage with some known frameworks too)
 
 **Note:** The `PORT=7777` is a random port that should not conflit with any of your applications. That said,
 it's optional. You can just avoid it and the server will start to listen on port `80` by default.
