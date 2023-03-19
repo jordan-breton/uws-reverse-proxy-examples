@@ -23,7 +23,7 @@ cd examples/nestjs
 yarn install
 ```
 
-**Note:** NestJS is installed in its own folder with its own node module, it's why you need to run `yarn install` two 
+**Note:** NestJS is installed in its own folder with its own `node_modules` folder, it's why you need to run `yarn install` two 
 times.
 
 See all available commands belows.
