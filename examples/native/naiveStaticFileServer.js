@@ -122,6 +122,7 @@ async function serveStaticFile(req, res){
 	);
 	const fileExt = path.extname(requestedPath);
 
+	// If the requested ressource is not a public route
 	if(!requestedPath.startsWith(publicDir)){
 		res.writeHead(403);
 		res.end('Forbidden!');
@@ -141,7 +142,9 @@ async function serveStaticFile(req, res){
 
 	let stat = fs.statSync(requestedPath);
 
+	// Support for auto sending index.html if the requested path is a directory, and index.html exists.
 	if(stat.isDirectory()){
+
 		// Support for automatically sending index.html when trying to access a directory,
 		// if an index.html exists in the above-mentioned directory.
 		if(!fs.existsSync(path.join(requestedPath, 'index.html'))){
@@ -154,6 +157,7 @@ async function serveStaticFile(req, res){
 		}
 	}
 
+	// If no modification, respond 304
 	if(stat.mtime.toUTCString() === req.headers['if-modified-since']){
 		res.writeHead(304);
 		res.end();
@@ -269,19 +273,23 @@ async function serveStaticFile(req, res){
 	// If this is a HEAD request, we don't send the body
 	if(req.method === 'HEAD'){
 		res.end();
+
+		// We don't want to keep those streams.
+		for(let stream in content){
+			stream.destroy();
+		}
+
 		return;
 	}
 
+	// Sends every stream in the content array through the response
 	function sendContent(){
 		const stream = content[0];
 
 		stream.on('error', () => {
 			try{
-				res.writeHead(500, 'Server error');
-				res.end('Server error');
-			}catch(err){
-				res.end();
-			}
+				res.end('500 Server error');
+			}catch(err){}
 		});
 
 		stream.on('close', () => {

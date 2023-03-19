@@ -1,3 +1,5 @@
+// region Imports
+
 const express = require('express');
 
 const uWebSockets = require('uWebSockets.js');
@@ -9,9 +11,11 @@ const {
 	createHTTPConfig
 } = require('uws-reverse-proxy');
 
-const { server: { port } } = require('../conf');
 const config = require('../conf');
-const { server: { forwardTo } } = config;
+const { server: { forwardTo, port } } = config;
+
+// endregion
+// region HTTP setup
 
 const app = express();
 
@@ -33,6 +37,9 @@ app.listen(forwardTo.port, forwardTo.host, () => {
 	console.log(`Express HTTP server listening at ${forwardTo.protocol}://${forwardTo.host}:${forwardTo.port}`);
 });
 
+// endregion
+// Proxy setup
+
 const proxy = new UWSProxy(
 	createUWSConfig(uWebSockets, { port }),
 	createHTTPConfig(forwardTo)
@@ -40,3 +47,5 @@ const proxy = new UWSProxy(
 proxy.start();
 
 startUWS(proxy.uws.server, port);
+
+// endregion

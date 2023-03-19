@@ -1,11 +1,23 @@
+/**
+ * Provide a helper to avoid repeating uWebSockets.js boilerplate in every example.
+ * @file
+ */
+
+// region Imports
+
 const TextDecoder = new(require("util").TextDecoder)();
 
+// endregion
+
 /**
- * Initialize a uWebSockets.js server
- * @param {import('uWebSockets.js').TemplatedApp} uwsServer
- * @param {int} port
+ * Initialize a uWebSockets.js server.
+ *
+ * @param {import('uWebSockets.js').TemplatedApp} uwsServer An application created with App() or SSLApp()
+ * @param {int} port The public port we want our application to listen to.
  */
 function startUWS(uwsServer, port){
+
+	// Configuring websockets
 	uwsServer.ws('/*', {
 		idleTimeout: 10,
 
@@ -39,4 +51,4 @@ function startUWS(uwsServer, port){
 
 module.exports = {
 	startUWS
-}
+};

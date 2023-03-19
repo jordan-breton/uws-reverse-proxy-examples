@@ -1,3 +1,5 @@
+// region Imports
+
 const uWebSockets = require('uWebSockets.js');
 const { startUWS } = require('../helpers');
 
@@ -7,9 +9,11 @@ const {
 	createHTTPConfig
 } = require('uws-reverse-proxy');
 
-const { server: { port } } = require('../conf');
 const config = require('../conf');
-const { server: { forwardTo } } = config;
+const { server: { forwardTo, port } } = config;
+
+// endregion
+// region HTTP setup
 
 const Fastify = require('fastify');
 
@@ -39,6 +43,9 @@ fastify.listen({
 	console.log(`Fastify HTTP server listening at ${forwardTo.protocol}://${forwardTo.host}:${forwardTo.port}`);
 });
 
+// endregion
+// region Proxy setup
+
 const proxy = new UWSProxy(
 	createUWSConfig(uWebSockets, { port }),
 	createHTTPConfig(forwardTo)
@@ -46,3 +53,5 @@ const proxy = new UWSProxy(
 proxy.start();
 
 startUWS(proxy.uws.server, port);
+
+// endregion

@@ -8,10 +8,13 @@
   "license": "AGPL-3.0-or-later",
   "private": false,
   "scripts": {
-    "example:native": "node examples/native/server.js",
-    "example:express": "node examples/express/server.js",
-    "example:koa": "node examples/koa/server.js",
-    "example:fastify": "node examples/fastify/server.js"
+    "native": "node examples/native/server.js",
+    "express": "node examples/express/server.js",
+    "koa": "node examples/koa/server.js",
+    "fastify": "node examples/fastify/server.js",
+    "nestjs": "cd examples/nestjs && nest start",
+    "standalone:http": "node examples/standalone/http.js",
+    "standalone:uws": "node examples/standalone/uWebSockets.js"
   },
   "dependencies": {
     "@fastify/static": "^6.9.0",

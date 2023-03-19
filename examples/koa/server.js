@@ -1,3 +1,5 @@
+// region Imports
+
 const http = require('http');
 const Koa = require('koa');
 const koaStaticServe = require('koa-static');
@@ -13,9 +15,11 @@ const {
 	createHTTPConfig
 } = require('uws-reverse-proxy');
 
-const { server: { port } } = require('../conf');
 const config = require('../conf');
-const { server: { forwardTo } } = config;
+const { server: { forwardTo, port } } = config;
+
+// endregion
+// region HTTP setup
 
 const app = new Koa();
 const router = koaRouter();
@@ -31,7 +35,8 @@ router.get('/config', async (ctx) => {
 	ctx.response.set('content-type', 'application/json');
 	ctx.body = JSON.stringify({
 		demo: 'koa',
-		note: "koa-static doesn't support range requests, so the video is not seekable. Try any other example to see it in action."
+		note: "koa-static doesn't support range requests, so the video is not seekable."
+			+ " Try any other example to see it in action."
 	});
 });
 
@@ -46,6 +51,9 @@ server.listen(forwardTo.port, forwardTo.host, () => {
 	console.log(`Koa HTTP server listening at ${forwardTo.protocol}://${forwardTo.host}:${forwardTo.port}`);
 });
 
+// endregion
+// region Proxy setup
+
 const proxy = new UWSProxy(
 	createUWSConfig(uWebSockets, { port }),
 	createHTTPConfig(forwardTo)
@@ -53,3 +61,5 @@ const proxy = new UWSProxy(
 proxy.start();
 
 startUWS(proxy.uws.server, port);
+
+// endregion

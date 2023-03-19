@@ -1,3 +1,5 @@
+// region Imports
+
 const url = require('url');
 const http = require('http');
 const uWebSockets = require('uWebSockets.js');
@@ -9,10 +11,12 @@ const {
 	createHTTPConfig
 } = require('uws-reverse-proxy');
 
-const { server: { port } } = require('../conf');
 const serveFile = require('./naiveStaticFileServer');
 const config = require('../conf');
-const { server: { forwardTo } } = config;
+const { server: { forwardTo, port } } = config;
+
+// endregion
+// HTTP setup
 
 const httpServer =  http.createServer((req, res) => {
 	const decodedRequest = url.parse(req.url);
@@ -48,6 +52,9 @@ httpServer.listen(forwardTo.port, forwardTo.host, () => {
 	console.log(`HTTP server listening at ${forwardTo.protocol}://${forwardTo.host}:${forwardTo.port}`);
 });
 
+// endregion
+// region Proxy setup
+
 const proxy = new UWSProxy(
 	createUWSConfig(uWebSockets, { port }),
 	createHTTPConfig(config.server.forwardTo)
@@ -55,3 +62,5 @@ const proxy = new UWSProxy(
 proxy.start();
 
 startUWS(proxy.uws.server, port);
+
+// endregion
