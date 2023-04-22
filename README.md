@@ -58,7 +58,7 @@ listening port.
 
 ### HTTP
 
-**Code directory**: [`examples/standalone`](/examples/standalone)
+**Code directory**: [`examples`](/examples)
 
 **Run**:
 
