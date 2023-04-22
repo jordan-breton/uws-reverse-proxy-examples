@@ -13,7 +13,11 @@
     "koa": "node examples/koa/server.js",
     "fastify": "node examples/fastify/server.js",
     "nestjs": "cd examples/nestjs && nest start",
-    "standalone:http": "node examples/standalone/http.js",
+    "standalone:express": "STANDALONE=true node examples/express/server.js",
+    "standalone:fastify": "STANDALONE=true node examples/fastify/server.js",
+    "standalone:koa": "STANDALONE=true node examples/koa/server.js",
+    "standalone:native": "STANDALONE=true node examples/native/server.js",
+    "standalone:nestjs": "cd examples/nestjs && STANDALONE=true nest start",
     "standalone:reverse-proxy": "node examples/standalone/uws-reverse-proxy.js"
   },
   "dependencies": {
@@ -25,6 +29,6 @@
     "koa-router": "^12.0.0",
     "koa-static": "^5.0.0",
     "uWebSockets.js": "uNetworking/uWebSockets.js#v20.19.0",
-    "uws-reverse-proxy": "^3.0.3"
+    "uws-reverse-proxy": "^3.1.1"
   }
 }

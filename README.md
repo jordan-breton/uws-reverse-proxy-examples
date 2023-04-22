@@ -62,8 +62,15 @@ listening port.
 
 **Run**:
 
-- With yarn: `yarn standalone:http`
-- With npm: `npm run standalone:http`
+- With yarn: `yarn standalone:native`
+- With npm: `npm run standalone:native`
+
+**Note:** other available standalone servers:
+
+- `standalone:express`
+- `standalone:koa` 
+- `standalone:fastify`
+- `standalone:nestjs`
 
 ### Proxy
 

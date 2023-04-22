@@ -55,12 +55,14 @@ httpServer.listen(forwardTo.port, forwardTo.host, () => {
 // endregion
 // region Proxy setup
 
-const proxy = new UWSProxy(
-	createUWSConfig(uWebSockets, { port }),
-	createHTTPConfig(config.server.forwardTo)
-);
-proxy.start();
+if(!process.env.STANDALONE){
+	const proxy = new UWSProxy(
+		createUWSConfig(uWebSockets, { port }),
+		createHTTPConfig(config.server.forwardTo)
+	);
+	proxy.start();
 
-startUWS(proxy.uws.server, port);
+	startUWS(proxy.uws.server, port);
+}
 
 // endregion

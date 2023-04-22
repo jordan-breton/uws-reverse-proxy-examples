@@ -1083,10 +1083,10 @@ utils-merge@1.0.1:
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha512-pMZTvIkT1d+TFGvDOqodOclx0QWkkgi6Tdoa8gC8ffGAAqz9pzPTZWAybbsHHoED/ztMtkv/VoYTYyShUn81hA==
 
-uws-reverse-proxy@^3.0.3:
-  version "3.0.3"
-  resolved "https://registry.yarnpkg.com/uws-reverse-proxy/-/uws-reverse-proxy-3.0.3.tgz#dfffd7d3667e20466fcc35cbe6ac6e1387ad4eed"
-  integrity sha512-uMT10ffq0BBr1WfF5naLAwUTJvnMZRryiFGywTWRnXx94uCHzPtQuWTTFRbJo9r2BmSBy8GqHWjh/L6af5E14w==
+uws-reverse-proxy@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/uws-reverse-proxy/-/uws-reverse-proxy-3.1.1.tgz#5a71d6d8b825c99593ba0492c165d7ef847be878"
+  integrity sha512-ff9XJ/c/g/FXIXMWg6YRml8d/fnVHZnBMTSgh9PnFzWTAafghTzLHh29q9Glp3rPjP65E84UQ+0L/90c9u/7KA==
 
 vary@^1.1.2, vary@~1.1.2:
   version "1.1.2"

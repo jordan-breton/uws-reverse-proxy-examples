@@ -15,6 +15,8 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   await app.listen(forwardTo.port, forwardTo.host);
 
+  if(process.env.STANDALONE) return;
+
   const proxy = new UWSProxy(
       createUWSConfig(uWebSockets, { port }),
       createHTTPConfig(forwardTo)
